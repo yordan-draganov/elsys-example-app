@@ -28,7 +28,7 @@ jobs:
           pip install pytest locust
 
       - name: Run unit tests
-        run: pytest tests/ -v
+        run: PYTHONPATH=$(pwd) pytest tests/ -v
 
       - name: Run short load test
         run: locust --headless -u 10 -r 5 -t 30s -f locustfile.py
